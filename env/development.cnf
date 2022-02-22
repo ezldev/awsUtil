@@ -1,0 +1,2 @@
+s/##CODE_ENV##/development/g
+s/##SECURITY_GROUP##/sg-1/g

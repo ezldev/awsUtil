@@ -1,0 +1,2 @@
+s/##CODE_ENV##/production/g
+s/##SECURITY_GROUP##/sg-0d426fb83fc50a9d5/g

@@ -1,0 +1,45 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 14
+  build:
+    commands:
+       - npm install
+      - npm run build
+      - rm -rf node_modules
+      - cp package.json package.json.original
+      - export NODE_ENV=production
+      - sed -i '/aws-sdk/d' package.json
+      - npm install --production
+      - rm package.json
+      - mv package.json.original package.json
+      - rm -rf node_modules/@babel/
+      - find . -name "*.gz" -type f -delete
+      - find . -name "*.d.ts" -type f -delete
+      - find . -name "*.md" -type f -delete
+      - find . -name "*.txt" -type f -delete
+      - find . -name "LICENSE" -type f -delete
+      - sed -f  env/development.cnf  template-aws.yml  > template-aws.tmp.yml
+
+      - sed -f  env/production.cnf  template-aws.yml  > template-aws.tmp.yml
+      - sed -f  env/dr.cnf  template-aws.yml  > template-aws.tmp.dr.yml
+
+      - aws cloudformation package --template template-aws.tmp.yml --s3-bucket "awsUtils-prod-builds" --output-template template-export.yml
+      - sed -i '/DefinitionUri/d' template-export.yml
+      - |
+        if [ -z "${BUCKET_DR}" ]; then 
+          touch template-export-dr.yml
+          echo "DR Bucket is not defined"
+        else
+          aws cloudformation package --template template-aws.tmp.dr.yml --s3-bucket $BUCKET_DR --output-template template-export-dr.yml
+          sed -i '/DefinitionUri/d' template-export-dr.yml
+        fi
+    
+      - node ./ebs-buildscript.js
+artifacts:
+  type: zip
+  files:
+    - template-export.yml
+    - template-export-dr.yml

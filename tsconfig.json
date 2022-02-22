@@ -1,0 +1,17 @@
+{
+  "extends": "@tsconfig/node14/tsconfig.json",
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "module": "CommonJS",
+    "outDir": "dist",
+    "sourceMap": true,
+    "types": ["node", "jest"],
+    "strict": false,
+    "noImplicitAny": false,
+    "esModuleInterop": true,
+    "skipLibCheck": false,
+    "forceConsistentCasingInFileNames": false
+  },
+  "include": ["**/*.ts"],
+  "exclude": ["node_modules"]
+}

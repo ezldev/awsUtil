@@ -1,0 +1,27 @@
+{
+  "prettier.singleQuote": true,
+  "editor.formatOnSave": true,
+  "editor.wordWrapColumn": 120,
+  "prettier.printWidth": 120,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.rulers": [120],
+  "cSpell.words": ["Upsert", "varchar"],
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/*.code-search": true,
+    "**/dist": true
+  },
+  "yaml.customTags": [
+    "!Equals sequence",
+    "!FindInMap sequence",
+    "!GetAtt",
+    "!GetAZs",
+    "!ImportValue",
+    "!Join sequence",
+    "!Ref",
+    "!Select sequence",
+    "!Split sequence",
+    "!Sub"
+  ]
+}

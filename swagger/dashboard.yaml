@@ -1,0 +1,108 @@
+swagger: '2.0'
+info:
+  description: 'dashboard api'
+  version: '1.0.0'
+  title: 'dashboard api'
+
+tags:
+  - name: 'default'
+    description: 'Exposed methods to source/client applications'
+  - name: 'Extra'
+    description: 'Not going to exposed to client applications. Internal usage only'
+  - name: 'Location'
+
+paths:
+  /service/list:
+    get:
+      operationId: service.getAllServices
+      summary: Get All services from database
+      responses:
+        200:
+          description: Successful request
+          schema:
+            $ref: '#/definitions/service'
+
+  /service/{id}:
+    delete:
+      tags:
+        - Extra
+      operationId: service.deleteRecord
+      summary: Delete existing service - deletes data from database.
+      x-permissions: ['ServiceRW']
+      parameters:
+        - name: id
+          in: 'path'
+          description: 'Service Id'
+          required: true
+          type: 'string'
+      responses:
+        200:
+          description: Successful request
+
+  /service:
+    post:
+      operationId: service.update
+      summary: Update existing service - Insert new service into database
+      x-permissions: ['ServiceRW']
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/serviceData'
+      responses:
+        200:
+          description: Successful request
+          schema:
+            $ref: '#/definitions/success-response'
+
+definitions:
+  service:
+    type: object
+    properties:
+      id:
+        type: string
+        example: '8001'
+      name:
+        type: string
+        example: 'Dashboard Lights'
+      min_skill:
+        type: string
+        example: 'B'
+      max_skill:
+        type: string
+        example: 'A'
+      minutes:
+        type: integer
+        example: 70
+      active:
+        type: number
+        example: 1
+
+  serviceData:
+    type: object
+    properties:
+      id:
+        type: string
+        example: '8001'
+      name:
+        type: string
+        example: 'Dashboard Lights'
+      min_skill:
+        type: string
+        example: 'B'
+      max_skill:
+        type: string
+        example: 'A'
+      minutes:
+        type: integer
+        example: 70
+      active:
+        type: number
+        example: 1
+    required:
+      - id
+  success-response:
+    type: string

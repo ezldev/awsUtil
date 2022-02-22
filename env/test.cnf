@@ -1,0 +1,2 @@
+s/##CODE_ENV##/test/g
+s/##SECURITY_GROUP##/sg-0a19f1101c3ad1221/g

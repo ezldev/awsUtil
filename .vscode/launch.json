@@ -1,0 +1,370 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Start All Servers",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/index.ts",
+      "outFiles": ["${workspaceFolder}/dist/**/*.js"],
+      "preLaunchTask": "tscWatch",
+      "env": {
+        "NO_AUTH": "1",
+        "TOKEN_LIFE": "2h",
+        "JAVA_API": "http://shop-deve-52azyur4nbis.gvwzmmgbgk.us-east-1.elasticbeanstalk.com"
+      }
+    },
+    {
+      "name": "Start Scheduling",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/index.ts",
+      "outFiles": ["${workspaceFolder}/dist/**/*.js"],
+      "preLaunchTask": "tscWatch",
+      "env": {
+        "NO_AUTH": "1",
+        "TOKEN_LIFE": "2h",
+        "APP_NAME": "scheduling",
+        "JAVA_API": "http://shop-deve-52azyur4nbis.gvwzmmgbgk.us-east-1.elasticbeanstalk.com"
+      }
+    },
+    {
+      "name": "Start Dashboard",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/index.ts",
+      "outFiles": ["${workspaceFolder}/dist/**/*.js"],
+      "preLaunchTask": "tscWatch",
+      "env": {
+        "NO_AUTH": "1",
+        "TOKEN_LIFE": "2h",
+        "APP_NAME": "dashboard",
+        "JAVA_API": "http://shop-deve-52azyur4nbis.gvwzmmgbgk.us-east-1.elasticbeanstalk.com"
+      }
+    },
+    {
+      "name": "Start Store App",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/index.ts",
+      "outFiles": ["${workspaceFolder}/dist/**/*.js"],
+      "preLaunchTask": "tscWatch",
+      "env": {
+        "APP_NAME": "storeApp",
+        "OIDC_APP": "TOOLS"
+      }
+    },
+    {
+      "name": "Self Service",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/index.ts",
+      "outFiles": ["${workspaceFolder}/dist/**/*.js"],
+      "preLaunchTask": "tscWatch",
+      "env": {
+        "APP_NAME": "selfService"
+      }
+    },
+    {
+      "name": "Short URL",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/index.ts",
+      "outFiles": ["${workspaceFolder}/dist/**/*.js"],
+      "preLaunchTask": "tscWatch",
+      "env": {
+        "APP_NAME": "shortURL"
+      }
+    },
+    {
+      "name": "DB Tool",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/index.ts",
+      "outFiles": ["${workspaceFolder}/dist/**/*.js"],
+      "preLaunchTask": "tscWatch",
+      "env": {
+        "APP_NAME": "dbTool"
+      }
+    },
+    {
+      "name": "Test Trials",
+      "type": "node",
+      "request": "launch",
+      "preLaunchTask": "tscWatch",
+      "program": "${workspaceFolder}/trials/techSchedule.ts",
+      "outFiles": ["${workspaceFolder}/dist/**/*.js"],
+      "env": {
+        "NO_MQ": "1"
+      },
+      "outputCapture": "std"
+    },
+    {
+      "name": "ScheduledAPIJob",
+      "type": "node",
+      "request": "launch",
+      "preLaunchTask": "tscWatch",
+      "program": "${workspaceFolder}/scheduledAPIJobs/index.ts",
+      "outFiles": ["${workspaceFolder}/dist/**/*.js"],
+      "env": {}
+    },
+    {
+      "name": "DataFeed",
+      "type": "node",
+      "request": "launch",
+      "preLaunchTask": "tscWatch",
+      "program": "${workspaceFolder}/index.ts",
+      "outFiles": ["${workspaceFolder}/dist/**/*.js"],
+      "env": {
+        "APP_NAME": "dataFeed"
+      }
+    },
+    {
+      "name": "Inventory Audit",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/index.ts",
+      "outFiles": ["${workspaceFolder}/dist/**/*.js"],
+      "preLaunchTask": "tscWatch",
+      "env": {
+        "APP_NAME": "inventoryAudit"
+      }
+    },
+    {
+      "name": "Upload Service",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/index.ts",
+      "outFiles": ["${workspaceFolder}/dist/**/*.js"],
+      "preLaunchTask": "tscWatch",
+      "env": {
+        "APP_NAME": "uploadService",
+        "STATIC_HOST": "static.dev.pepboys.net",
+        "DOCS_STORE": "pby-store-docs-development"
+      }
+    },
+    {
+      "name": "Supply Order System",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/index.ts",
+      "outFiles": ["${workspaceFolder}/dist/**/*.js"],
+      "preLaunchTask": "tscWatch",
+      "env": {
+        "APP_NAME": "SOS",
+        "STATIC_HOST": "static.dev.pepboys.net",
+        "ORDER_SQS": "https://sqs.us-east-1.amazonaws.com/175319268816/supplyOrderSystem-nodejs-development-SOSOrderSQS-E3A9M1S0B9RW"
+      },
+      "outputCapture": "std"
+    },
+    {
+      "name": "Email Service",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/index.ts",
+      "outFiles": ["${workspaceFolder}/dist/**/*.js"],
+      "preLaunchTask": "tscWatch",
+      "env": {
+        "APP_NAME": "emailService",
+        "STATIC_HOST": "static.dev.pepboys.net",
+        "DEV_ENV": "local",
+        "EMAIL_SQS": "https://sqs.us-east-1.amazonaws.com/175319268816/emailService-nodejs-development-EmailSqs-4IMGT1AAYRDG"
+      }
+    },
+    {
+      "name": "ASE APIs",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/index.ts",
+      "outFiles": ["${workspaceFolder}/dist/**/*.js"],
+      "preLaunchTask": "tscWatch",
+      "env": {
+        "APP_NAME": "ASE"
+      }
+    },
+    {
+      "name": "Files Service",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/index.ts",
+      "outFiles": ["${workspaceFolder}/dist/**/*.js"],
+      "preLaunchTask": "tscWatch",
+      "env": {
+        "APP_NAME": "FILES",
+        "OIDC_APP": "FILES",
+        "STORE_DOCS_BUCKET": "pby-store-docs-development"
+      }
+    },
+    {
+      "name": "Debug Jest Integration Tests",
+      "type": "node",
+      "request": "launch",
+      "env": {
+        "APP_NAME": "SOS",
+        "STATIC_HOST": "static.dev.pepboys.net"
+      },
+      "runtimeArgs": ["--inspect-brk", "${workspaceRoot}/node_modules/jest/bin/jest.js", "--runInBand"],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "port": 9229,
+      "outputCapture": "std"
+    },
+    {
+      "name": "Debug Jest Unit Tests",
+      "type": "node",
+      "request": "launch",
+      "env": {
+        "APP_NAME": "SOS",
+        "STATIC_HOST": "static.dev.pepboys.net"
+      },
+      "runtimeArgs": [
+        "--inspect-brk",
+        "${workspaceRoot}/node_modules/jest/bin/jest.js",
+        "--config=./jest.unit.config.js",
+        "--runInBand"
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "port": 9230,
+      "outputCapture": "std"
+    },
+    {
+      "name": "Vendors APIs",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/index.ts",
+      "outFiles": ["${workspaceFolder}/dist/**/*.js"],
+      "preLaunchTask": "tscWatch",
+      "env": {
+        "APP_NAME": "Vendors",
+        "OIDC_APP": "VENDORS",
+        "STATIC_HOST": "static.dev.pepboys.net"
+      }
+    },
+    {
+      "name": "Performance Pay",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/performancePay/index.ts",
+      "outFiles": ["${workspaceFolder}/dist/**/*.js"],
+      "preLaunchTask": "tscWatch",
+      "env": {
+        "RUN_LOCAL": "1"
+      },
+      "outputCapture": "std"
+    },
+    {
+      "name": "Sourcing Data APIs",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/index.ts",
+      "outFiles": ["${workspaceFolder}/dist/**/*.js"],
+      "preLaunchTask": "tscWatch",
+      "env": {
+        "APP_NAME": "sourcingData"
+      },
+      "outputCapture": "std"
+    },
+    {
+      "name": "Stores Table Manager",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/index.ts",
+      "outFiles": ["${workspaceFolder}/dist/**/*.js"],
+      "preLaunchTask": "tscWatch",
+      "env": {
+        "APP_NAME": "storeOrg"
+      },
+      "outputCapture": "std"
+    },
+    {
+      "name": "TechInventory",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/index.ts",
+      "outFiles": ["${workspaceFolder}/dist/**/*.js"],
+      "preLaunchTask": "tscWatch",
+      "env": {
+        "APP_NAME": "techInventory"
+      }
+    },
+    {
+      "name": "Shopx Web",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/index.ts",
+      "outFiles": ["${workspaceFolder}/dist/**/*.js"],
+      "preLaunchTask": "tscWatch",
+      "env": {
+        "APP_NAME": "shopxWeb"
+      },
+      "outputCapture": "std"
+    },
+    {
+      "name": "WH Returns",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/index.ts",
+      "outFiles": ["${workspaceFolder}/dist/**/*.js"],
+      "preLaunchTask": "tscWatch",
+      "env": {
+        "APP_NAME": "whReturns"
+      },
+      "outputCapture": "std"
+    },
+    {
+      "name": "New Customer Form",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/newCustomerForm/index.ts",
+      "outFiles": ["${workspaceFolder}/dist/**/*.js"],
+      "preLaunchTask": "tscWatch",
+      "env": {
+        "RUN_LOCAL": "1",
+        "OIDC_APP": "NEW_CUSTOMER_FORM"
+      },
+      "outputCapture": "std"
+    },
+    {
+      "name": "Corporate Directory",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/corporateDirectory/index.ts",
+      "outFiles": ["${workspaceFolder}/dist/**/*.js"],
+      "preLaunchTask": "tscWatch",
+      "env": {
+        "RUN_LOCAL": "1",
+        "OIDC_APP": "CORP_DIR"
+      },
+      "outputCapture": "std"
+    },
+    {
+      "name": "IOT",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/iot/index.ts",
+      "outFiles": ["${workspaceFolder}/dist/**/*.js"],
+      "preLaunchTask": "tscWatch",
+      "env": {
+        "RUN_LOCAL": "1",
+        "APP_NAME": "iot"
+      },
+      "outputCapture": "std"
+    },
+    {
+      "name": "Current TS File",
+      "type": "node",
+      "request": "launch",
+      "args": ["${relativeFile}", "storeOrg", "development"],
+      "runtimeArgs": ["--nolazy", "-r", "ts-node/register"],
+      "sourceMaps": true,
+      "cwd": "${workspaceRoot}",
+      "protocol": "inspector",
+      "outputCapture": "std",
+      "env": {}
+    }
+  ]
+}
